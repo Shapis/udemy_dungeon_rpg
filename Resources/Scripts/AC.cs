@@ -44,6 +44,7 @@ public partial class AC : Node
     {
         Idle,
         Move,
+        Dash,
     }
 
     public enum InputDirection

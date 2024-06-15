@@ -1,20 +1,21 @@
 using Godot;
 using System;
 
-public partial class IdleState : Node
+public partial class PlayerIdleState : Node
 {
     private Player? characterNode;
     public sealed override void _Ready()
     {
         characterNode = GetOwner<Player>();
         SetPhysicsProcess(false);
+        SetProcessInput(false);
     }
 
     public sealed override void _PhysicsProcess(double delta)
     {
         if (characterNode?.direction != Vector2.Zero)
         {
-            characterNode!.stateMachine?.SwitchStates<MoveState>();
+            characterNode!.stateMachine?.SwitchStates<PlayerMoveState>();
         }
     }
 
@@ -27,6 +28,21 @@ public partial class IdleState : Node
 
             characterNode!.animationPlayer!.Play(AC.PlayerAnimation.Idle.ToString());
             SetPhysicsProcess(true);
+            SetProcessInput(true);
+        }
+        else if (what == 5002)
+        {
+            SetPhysicsProcess(false);
+            SetProcessInput(false);
+        }
+
+    }
+
+    public sealed override void _Input(InputEvent @event)
+    {
+        if (Input.IsActionJustPressed(AC.PlayerAnimation.Dash.ToString()))
+        {
+            characterNode.stateMachine.SwitchStates<PlayerDashState>();
         }
     }
 }
