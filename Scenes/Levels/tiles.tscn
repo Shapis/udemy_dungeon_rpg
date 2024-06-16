@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=3 uid="uid://4cfom11jvvry"]
+
+[ext_resource type="PackedScene" uid="uid://demlv4ujy53tl" path="res://Assets/Models/Dungeon/gltf/floor_tile_small.gltf.glb" id="1_io5e2"]
+[ext_resource type="PackedScene" uid="uid://vi30jdg1eueh" path="res://Assets/Models/Dungeon/gltf/wall.gltf.glb" id="2_km3bi"]
+[ext_resource type="PackedScene" uid="uid://c24ho5koaxbew" path="res://Assets/Models/Dungeon/gltf/stairs_wood_decorated.gltf.glb" id="3_8vhnv"]
+[ext_resource type="PackedScene" uid="uid://dwii60nbeq312" path="res://Assets/Models/Dungeon/gltf/wall_corner.gltf.glb" id="4_3na34"]
+[ext_resource type="PackedScene" uid="uid://knqn3sotyjmk" path="res://Assets/Models/Dungeon/gltf/wall_Tsplit.gltf.glb" id="5_ntniy"]
+[ext_resource type="PackedScene" uid="uid://cnvqtoypcjn3x" path="res://Assets/Models/Dungeon/gltf/wall_open_scaffold.gltf.glb" id="6_2urn3"]
+[ext_resource type="PackedScene" uid="uid://vo2dyxqevs4c" path="res://Assets/Models/Dungeon/gltf/wall_doorway_scaffold.glb" id="7_3xffe"]
+
+[node name="Tiles" type="Node3D"]
+
+[node name="floor_tile_small_gltf" parent="." instance=ExtResource("1_io5e2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37998, 0, 0)
+
+[node name="wall_gltf" parent="." instance=ExtResource("2_km3bi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.71062, 0, 0)
+
+[node name="stairs_wood_decorated_gltf" parent="." instance=ExtResource("3_8vhnv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.20986)
+
+[node name="wall_corner_gltf" parent="." instance=ExtResource("4_3na34")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.0221)
+
+[node name="wall_Tsplit_gltf" parent="." instance=ExtResource("5_ntniy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.07079, 0, -4.99694)
+
+[node name="wall_open_scaffold_gltf" parent="." instance=ExtResource("6_2urn3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.13837, 0, 0)
+
+[node name="wall_doorway_scaffold2" parent="." instance=ExtResource("7_3xffe")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.03331, 0, 4.00504)
