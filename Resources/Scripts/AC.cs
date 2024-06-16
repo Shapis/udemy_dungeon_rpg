@@ -103,4 +103,10 @@ public partial class AC : Node
                 return new Color(0f / 255f, 0f / 255f, 0f / 255f, alpha / 255f);
         }
     }
+
+    public enum NotificationType
+    {
+        EnterState = 5001,
+        ExitState = 5002,
+    }
 }

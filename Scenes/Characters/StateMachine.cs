@@ -8,7 +8,7 @@ public partial class StateMachine : Node
 
     public sealed override void _Ready()
     {
-        currentState!.Notification(5001);
+        currentState!.Notification((int)AC.NotificationType.EnterState);
     }
 
     public void SwitchStates<T>()
@@ -29,9 +29,9 @@ public partial class StateMachine : Node
 
         if (newState is not null)
         {
-            currentState!.Notification(5002);
+            currentState!.Notification((int)AC.NotificationType.ExitState);
             currentState = newState;
-            currentState.Notification(5001);
+            currentState.Notification((int)AC.NotificationType.EnterState);
         }
     }
 }
