@@ -47,6 +47,15 @@ public partial class AC : Node
         Dash,
     }
 
+    public enum EnemyAnimation
+    {
+        Idle,
+        Move,
+        Death,
+        Attack,
+        TakeHit
+    }
+
     public enum InputDirection
     {
         MoveForward,

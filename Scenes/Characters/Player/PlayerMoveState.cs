@@ -29,9 +29,9 @@ public partial class PlayerMoveState : PlayerState
         }
     }
 
-    protected override void EnterState(AC.PlayerAnimation playerAnimation)
+    protected override void EnterState()
     {
-        base.EnterState(AC.PlayerAnimation.Move);
+        characterNode!.AnimationPlayerNode!.Play(AC.PlayerAnimation.Move.ToString());
     }
 }
 

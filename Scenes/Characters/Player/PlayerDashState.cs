@@ -20,9 +20,9 @@ public partial class PlayerDashState : PlayerState
         characterNode.Flip();
     }
 
-    protected override void EnterState(AC.PlayerAnimation playerAnimation)
+    protected override void EnterState()
     {
-        base.EnterState(AC.PlayerAnimation.Dash);
+        characterNode!.AnimationPlayerNode!.Play(AC.PlayerAnimation.Dash.ToString());
 
         characterNode!.Velocity = new(characterNode.direction.X, 0, characterNode.direction.Y);
 

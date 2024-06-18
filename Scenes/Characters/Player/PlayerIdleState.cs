@@ -21,8 +21,8 @@ public partial class PlayerIdleState : PlayerState
         }
     }
 
-    protected override void EnterState(AC.PlayerAnimation playerAnimation)
+    protected override void EnterState()
     {
-        base.EnterState(AC.PlayerAnimation.Idle);
+        characterNode!.AnimationPlayerNode!.Play(AC.PlayerAnimation.Idle.ToString());
     }
 }
