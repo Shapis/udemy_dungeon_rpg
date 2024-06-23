@@ -2,35 +2,34 @@ using Godot;
 
 public partial class EnemyReturnState : EnemyState
 {
-    private Vector3 destination;
 
     public override void _Ready()
     {
         base._Ready();
 
-        Vector3 localPosition = characterNode!.pathNode!.Curve.GetPointPosition(0);
-        Vector3 globalPosition = characterNode!.pathNode!.GlobalPosition;
-        destination = localPosition + globalPosition;
+        destination = GetPointGlobalPosition(0);
     }
 
     public sealed override void _PhysicsProcess(double delta)
     {
         if (characterNode is not null)
         {
-            if (characterNode.GlobalPosition == destination)
+            if (characterNode.AgentNode.IsNavigationFinished())
             {
-                GD.Print("Reached destination!");
+                characterNode.StateMachineNode.SwitchStates<EnemyPatrolState>();
                 return;
             }
-            characterNode.Velocity = characterNode.GlobalPosition.DirectionTo(destination);
 
-            characterNode.MoveAndSlide();
+            Move();
+
         }
     }
 
     protected override void EnterState()
     {
-        characterNode!.AnimationPlayerNode!.Play(AC.EnemyAnimation.Move.ToString());
+        characterNode.AnimationPlayerNode.Play(AC.EnemyAnimation.Move.ToString());
+
+        characterNode.AgentNode.TargetPosition = destination;
     }
 
 
